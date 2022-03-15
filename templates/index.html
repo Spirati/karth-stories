@@ -1,0 +1,10 @@
+<form action="/">
+    <input id="query" name="query" placeholder="search for...">
+    <input type="submit">
+</form>
+
+<ul>
+{% for item in matching %}
+    <li><a href="https://karth.top/adventure/{{ item[0] }}?global=1" target="_blank">{{ item[1] }}</a></li>
+{% endfor %}
+</ul>

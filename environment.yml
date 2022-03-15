@@ -1,0 +1,9 @@
+name: karth-stories
+channels:
+  - defaults
+dependencies:
+  - python=3.9.1
+  - pip=21.1.3
+  - requests==2.27.1
+  - colorama==0.4.4
+  - flask==2.0.3
