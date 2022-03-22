@@ -1,6 +1,12 @@
 <form action="/">
     <input id="query" name="query" placeholder="search for...">
     <input type="submit">
+    <button id="matchToggle" type="button">Show character matching</button>
+    <div id="matchBox" style="display: none;">
+        {% for char in chars %}
+            <div><input type="checkbox" id="{{char}}" name="{{char}}"><label for="{{char}}">{{chars[char]}}</label></div>
+        {% endfor %}
+    </div>
 </form>
 
 <ul>
@@ -8,3 +14,24 @@
     <li><a href="https://karth.top/adventure/{{ item[0] }}?global=1" target="_blank">{{ item[1] }}</a></li>
 {% endfor %}
 </ul>
+
+<style>
+    #matchBox {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr)
+    }
+</style>
+
+<script>
+    document.getElementById("matchToggle").addEventListener('click', () => {
+        const currentStyle = document.getElementById("matchBox").style.display
+        if(currentStyle == "none") {
+            document.getElementById("matchToggle").innerHTML = "Hide character matching"
+            document.getElementById("matchBox").style.display = "grid"
+        } else {
+            document.getElementById("matchToggle").innerHTML = "Show character matching"
+            document.getElementById("matchBox").style.display = "none"
+        }
+    })
+</script>
